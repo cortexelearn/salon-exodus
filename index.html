@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Exodus • Peterborough, NH | Modern Boutique Salon</title>
+    <meta name="description" content="Rooted in community, refined in luxury. Boutique salon in Peterborough NH offering premium hair, skin, nail & bridal services.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Inter:wght@300;400;500;600&amp;display=swap');
+        
+        :root {
+            --salon-maroon: #4A2C3A;
+            --salon-gold: #C5A26F;
+            --salon-cream: #F8F4EF;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-serif {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .section-header {
+            font-size: 2.5rem;
+            line-height: 1.05;
+        }
+
+        .nav-pill {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-pill:hover {
+            background-color: #4A2C3A;
+            color: white;
+            transform: translateY(-1px);
+        }
+        
+        .nav-pill.active {
+            background-color: #4A2C3A;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgb(74 44 58 / 0.2);
+        }
+
+        .service-card, .image-card {
+            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), 
+                        box-shadow 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .service-card:hover, .image-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .gallery-img {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.015);
+        }
+
+        .modern-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .luxury-gradient {
+            background: linear-gradient(135deg, #4A2C3A 0%, #2D1F24 100%);
+        }
+
+        .soft-shadow {
+            box-shadow: 0 10px 15px -3px rgb(74 44 58 / 0.1), 
+                       0 4px 6px -4px rgb(74 44 58 / 0.1);
+        }
+
+        .premium-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #C5A26F, transparent);
+        }
+
+        .quick-nav {
+            scrollbar-width: none;
+        }
+        
+        .quick-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .modal {
+            animation: modalPopIn 0.2s ease-out forwards;
+        }
+
+        @keyframes modalPopIn {
+            from { opacity: 0; transform: scale(0.96) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .salon-hero {
+            background-image: linear-gradient(rgba(45, 31, 36, 0.65), rgba(45, 31, 36, 0.55)), 
+                             url('interior.jpg');
+            background-size: cover;
+            background-position: center 30%;
+        }
+
+        .stat {
+            font-variant-numeric: tabular-nums;
+        }
+    </style>
+</head>
+<body class="bg-[#F8F4EF] text-[#2D1F24]">
+
+    <!-- TOP NAV -->
+    <nav class="bg-white/95 backdrop-blur-xl border-b border-[#EDE4D9] sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3 cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+                    <div class="w-10 h-10 bg-[#4A2C3A] rounded-2xl flex items-center justify-center">
+                        <span class="text-white text-3xl leading-none" style="font-family: 'Playfair Display', Georgia, serif; margin-top: -3px;">✕</span>
+                    </div>
+                    <div>
+                        <div class="text-[27px] font-bold tracking-[-1.5px] heading-serif text-[#4A2C3A]">Salon Exodus</div>
+                        <div class="text-[9px] text-[#8B6F5C] -mt-1.5 tracking-[2px]">PETERBOROUGH • NH</div>
+                    </div>
+                </div>
+
+                <!-- Desktop Quick Actions -->
+                <div class="hidden md:flex items-center gap-x-2.5">
+                    <a href="https://app.squareup.com/appointments/book/ch3mqiuq3ri8e3/LYQ264JHCVMAT/start" 
+                       target="_blank"
+                       class="flex items-center gap-x-2 bg-[#4A2C3A] hover:bg-[#3A1F2E] text-white text-sm font-semibold px-6 h-11 rounded-3xl modern-btn shadow-md">
+                        <i class="fa-solid fa-calendar-check mr-1.5"></i>
+                        <span>BOOK NOW</span>
+                    </a>
+                    <a href="https://www.instagram.com/salonexodus603/" target="_blank" 
+                       class="flex items-center justify-center w-11 h-11 text-[#4A2C3A] hover:text-[#C5A26F] transition-colors">
+                        <i class="fa-brands fa-instagram text-2xl"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile -->
+                <div class="md:hidden flex items-center gap-x-1">
+                    <a href="https://app.squareup.com/appointments/book/ch3mqiuq3ri8e3/LYQ264JHCVMAT/start" 
+                       target="_blank"
+                       class="text-xs bg-[#4A2C3A] text-white px-4 h-9 flex items-center rounded-3xl font-semibold">
+                        BOOK
+                    </a>
+                    <button id="mobile-menu-btn" class="w-10 h-10 flex items-center justify-center text-[#4A2C3A]">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="salon-hero h-[92dvh] min-h-[620px] flex items-center relative">
+        <div class="max-w-5xl mx-auto px-6 pt-8 pb-16 text-white">
+            <div class="max-w-[620px] bg-[#2D1F24]/85 backdrop-blur-md rounded-3xl p-8 border border-white/10">
+                <div class="inline-flex items-center gap-x-2 bg-white/20 backdrop-blur border border-white/30 text-xs tracking-[2px] font-semibold px-4 h-8 rounded-3xl mb-5">
+                    <div class="w-1.5 h-1.5 bg-[#C5A26F] rounded-full animate-pulse"></div>
+                    <span>7 SCHOOL STREET • PETERBOROUGH</span>
+                </div>
+                
+                <h1 class="text-[68px] md:text-[72px] leading-[0.9] tracking-[-3.5px] font-bold heading-serif mb-5">
+                    Rooted in<br>community.<br>
+                    <span class="text-[#C5A26F]">Refined in luxury.</span>
+                </h1>
+                
+                <p class="max-w-md text-[17px] text-white/90 mb-8 leading-snug">
+                    A boutique salon experience offering exceptional hair, skin, nail, and bridal services in the heart of southern New Hampshire.
+                </p>
+                
+                <div class="flex flex-wrap gap-3">
+                    <a href="https://app.squareup.com/appointments/book/ch3mqiuq3ri8e3/LYQ264JHCVMAT/start" 
+                       target="_blank"
+                       class="inline-flex items-center justify-center gap-x-3 bg-white hover:bg-[#F8F4EF] text-[#4A2C3A] px-8 py-[17px] rounded-3xl font-semibold text-[15px] shadow-xl modern-btn">
+                        <span>BOOK YOUR APPOINTMENT</span>
+                    </a>
+                    <a href="#quick-nav" 
+                       class="inline-flex items-center justify-center gap-x-2 border border-white/70 hover:bg-white/10 px-7 py-[17px] rounded-3xl font-semibold text-[15px] transition-all">
+                        <span>EXPLORE THE SALON</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 hidden md:flex flex-col items-center text-white/60 text-xs tracking-[1.5px]">
+            <div>SCROLL TO BEGIN</div>
+            <i class="fa-solid fa-chevron-down mt-1 text-sm animate-bounce"></i>
+        </div>
+    </header>
+
+    <!-- QUICK HORIZONTAL NAV BAR -->
+    <div id="quick-nav" class="bg-white border-b border-[#EDE4D9] sticky top-[79px] z-40">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-center gap-x-2 overflow-x-auto quick-nav px-5 py-3.5 text-sm font-medium whitespace-nowrap">
+                <a href="#story" class="nav-pill px-5 py-2 rounded-3xl bg-[#F8F4EF] text-[#4A2C3A] hover:bg-[#4A2C3A] hover:text-white flex items-center gap-x-2 text-sm">
+                    <i class="fa-solid fa-heart text-xs"></i> <span>Our Story</span>
+                </a>
+                <a href="#services" class="nav-pill px-5 py-2 rounded-3xl bg-[#F8F4EF] text-[#4A2C3A] hover:bg-[#4A2C3A] hover:text-white flex items-center gap-x-2 text-sm">
+                    <i class="fa-solid fa-scissors text-xs"></i> <span>Services</span>
+                </a>
+                <a href="#visuals" class="nav-pill px-5 py-2 rounded-3xl bg-[#F8F4EF] text-[#4A2C3A] hover:bg-[#4A2C3A] hover:text-white flex items-center gap-x-2 text-sm">
+                    <i class="fa-solid fa-images text-xs"></i> <span>Gallery &amp; Space</span>
+                </a>
+                <a href="#weddings" class="nav-pill px-5 py-2 rounded-3xl bg-[#F8F4EF] text-[#4A2C3A] hover:bg-[#4A2C3A] hover:text-white flex items-center gap-x-2 text-sm">
+                    <i class="fa-solid fa-gem text-xs"></i> <span>Weddings</span>
+                </a>
+                <a href="#location" class="nav-pill px-5 py-2 rounded-3xl bg-[#F8F4EF] text-[#4A2C3A] hover:bg-[#4A2C3A] hover:text-white flex items-center gap-x-2 text-sm">
+                    <i class="fa-solid fa-map-marker-alt text-xs"></i> <span>Visit Us</span>
+                </a>
+                
+                <div class="flex-1"></div>
+                
+                <a href="https://www.instagram.com/salonexodus603/" target="_blank" 
+                   class="hidden md:flex items-center gap-x-2 text-xs px-4 py-2 text-[#4A2C3A] hover:text-[#C5A26F]">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span class="font-medium">@salonexodus603</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- TRUST / STATS BAR -->
+    <div class="bg-white">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex flex-wrap justify-center md:justify-between items-center gap-x-8 gap-y-2 text-sm border-b border-[#EDE4D9]">
+            <div class="flex items-center gap-x-2 text-[#4A2C3A]">
+                <i class="fa-solid fa-star text-[#C5A26F]"></i>
+                <span class="font-semibold">4.8/5</span>
+                <span class="text-[#6B5C52]">• 13+ reviews on Yelp</span>
+            </div>
+            <div class="hidden md:block h-3 w-px bg-[#EDE4D9]"></div>
+            <div class="text-[#6B5C52] text-sm">Cezanne Keratin Certified • Now offering smoothing treatments</div>
+            <div class="hidden md:block h-3 w-px bg-[#EDE4D9]"></div>
+            <div class="text-xs text-[#8B6F5C]">Last-minute openings often available mid-week</div>
+        </div>
+    </div>
+
+    <!-- OUR STORY -->
+    <section id="story" class="max-w-5xl mx-auto px-6 pt-14 pb-12">
+        <div class="grid md:grid-cols-12 gap-x-10 items-center">
+            <div class="md:col-span-7">
+                <div class="uppercase tracking-[3px] text-xs font-semibold text-[#C5A26F] mb-2">OUR PHILOSOPHY</div>
+                <h2 class="section-header heading-serif tracking-tighter text-[#4A2C3A] mb-6 leading-none">A place where<br>beauty meets belonging.</h2>
+                
+                <div class="text-[#5C4639] text-[15px] leading-relaxed max-w-prose">
+                    <p class="mb-4">Salon Exodus was created with one belief: exceptional beauty services should feel personal, warm, and deeply rooted in community.</p>
+                    <p>We are a boutique studio in the heart of Peterborough offering a curated menu of hair, skin, nail, and bridal services. Every guest is treated like family.</p>
+                </div>
+            </div>
+            
+            <div class="md:col-span-5 mt-9 md:mt-0">
+                <div class="bg-white rounded-3xl p-7 soft-shadow border border-[#EDE4D9]">
+                    <div class="grid grid-cols-3 gap-5 text-center">
+                        <div>
+                            <div class="text-4xl font-semibold text-[#4A2C3A] stat">11</div>
+                            <div class="text-[10px] tracking-widest text-[#8B6F5C] mt-0.5">SERVICES</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-semibold text-[#4A2C3A] stat">57</div>
+                            <div class="text-[10px] tracking-widest text-[#8B6F5C] mt-0.5">IG FOLLOWERS</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-semibold text-[#4A2C3A] stat">4.8</div>
+                            <div class="text-[10px] tracking-widest text-[#8B6F5C] mt-0.5">RATING</div>
+                        </div>
+                    </div>
+                    <div class="premium-divider my-6"></div>
+                    <div class="text-center text-xs text-[#6B5C52]">
+                        Now under new ownership and welcoming the community
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="bg-white py-14 border-y border-[#EDE4D9]">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+                <div>
+                    <div class="text-xs tracking-[3px] font-semibold text-[#C5A26F]">CURATED EXPERIENCES</div>
+                    <h2 class="section-header heading-serif tracking-tighter text-[#4A2C3A]">Signature Services</h2>
+                </div>
+                <a href="https://app.squareup.com/appointments/book/ch3mqiuq3ri8e3/LYQ264JHCVMAT/start" target="_blank"
+                   class="mt-3 md:mt-0 text-sm font-semibold flex items-center text-[#4A2C3A] hover:text-[#C5A26F]">
+                    VIEW FULL MENU &amp; PRICING <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Service cards (abbreviated for clarity) -->
+                <div class="service-card bg-[#F8F4EF] border border-[#EDE4D9] rounded-3xl p-7">
+                    <div class="flex justify-between items-start">
+                        <div class="text-4xl">✂︎</div>
+                        <div class="text-xs bg-white px-3 py-1 rounded-2xl text-[#8B6F5C] font-medium">FROM $75</div>
+                    </div>
+                    <h3 class="font-semibold text-2xl mt-5 tracking-tight">Precision Haircuts &amp; Styling</h3>
+                    <p class="text-[#6B5C52] mt-2 text-sm">Expert cuts and signature styling tailored to you.</p>
+                    <a href="https://app.squareup.com/appointments/book/ch3mqiuq3ri8e3/LYQ264JHCVMAT/start" target="_blank" 
+                       class="inline-block mt-6 text-sm font-semibold text-[#4A2C3A] hover:text-[#C5A26F]">Book this service →</a>
+                </div>
+
+                <div class="service-card bg-[#F8F4EF] border border-[#EDE4D9] rounded-3xl p-7">
+                    <div class="flex justify-between items-start">
+                        <div class="text-4xl">🎨</div>
+                        <div class="text-xs bg-white px-3 py-1 rounded-2xl text-[#8B6F5C] font-medium">FROM $135</div>
+                    </div>
+                    <h3 class="font-semibold text-2xl mt-5 tracking-tight">Custom Color &amp; Balayage</h3>
+                    <p class="text-[#6B5C52] mt-2 text-sm">Hand-painted dimension and corrective color services.</p>
+                    <a href="https://app.squareup.com/appointments/book/ch3mqiuq3ri8e3/LYQ264JHCVMAT/start" target="_blank" 
+                       class="inline-block mt-6 text-sm font-semibold text-[#4A2C3A] hover:text-[#C5A26F]">Book this service →</a>
+                </div>
+
+                <div class="service-card bg-[#4A2C3A] text-white rounded-3xl p-7 relative">
+                    <div class="absolute top-6 right-6 text-[10px] bg-[#C5A26F] text-[#4A2C3A] font-bold px-3.5 h-6 flex items-center rounded-2xl tracking-wider">SIGNATURE</div>
+                    <div class="text-4xl">🪞</div>
+                    <h3 class="font-semibold text-2xl mt-5 tracking-tight">Cezanne Keratin Smoothing</h3>
+                    <p class="text-white/80 mt-2 text-sm">Silky, frizz-free hair that lasts 3–5 months. Now available.</p>
+                    <div class="mt-6 flex items-baseline justify-between">
+                        <div><span class="text-2xl font-semibold">$250</span> <span class="text-xs opacity-70">starting</span></div>
+                        <a href="https://app.squareup.com/appointments/book/ch3mqiuq3ri8e3/LYQ264JHCVMAT/start" target="_blank" 
+                           class="text-xs font-bold bg-white text-[#4A2C3A] px-5 h-9 flex items-center rounded-3xl">BOOK NOW</a>
+                    </div>
+                </div>
+
+                <div class="service-card bg-[#F8F4EF] border border-[#EDE4D9] rounded-3xl p-7">
+                    <div class="flex justify-between items-start">
+                        <div class="text-4xl">💅</div>
+                        <div class="text-xs bg-white px-3 py-1 rounded-2xl text-[#8B6F5C] font-medium">FROM $55</div>
+                    </div>
+                    <h3 class="font-semibold text-2xl mt-5 tracking-tight">Nail Art &amp; Care</h3>
+                    <p class="text-[#6B5C52] mt-2 text-sm">Gel manicures, pedicures &amp; custom nail art in a relaxing setting.</p>
+                    <a href="https://app.squareup.com/appointments/book/ch3mqiuq3ri8e3/LYQ264JHCVMAT/start" target="_blank" 
+                       class="inline-block mt-6 text-sm font-semibold text-[#4A2C3A] hover:text-[#C5A26F]">Book this service →</a>
+                </div>
+
+                <div class="service-card bg-[#F8F4EF] border border-[#EDE4D9] rounded-3xl p-7">
+                    <div class="flex justify-between items-start">
+                        <div class="text-4xl">✨</div>
+                        <div class="text-xs bg-white px-3 py-1 rounded-2xl text-[#8B6F5C] font-medium">FROM $85</div>
+                    </div>
+                    <h3 class="font-semibold text-2xl mt-5 tracking-tight">Skin &amp; Makeup</h3>
+                    <p class="text-[#6B5C52] mt-2 text-sm">Facials, brow shaping, and professional makeup application.</p>
+                    <a href="https://app.squareup.com/appointments/book/ch3mqiuq3ri8e3/LYQ264JHCVMAT/start" target="_blank" 
+                       class="inline-block mt-6 text-sm font-semibold text-[#4A2C3A] hover:text-[#C5A26F]">Book this service →</a>
+                </div>
+
+                <div class="service-card bg-[#F8F4EF] border border-[#EDE4D9] rounded-3xl p-7">
+                    <div class="flex justify-between items-start">
+                        <div class="text-4xl">👰</div>
+                        <div class="text-xs bg-[#C5A26F] text-white px-3 py-1 rounded-2xl font-semibold">PACKAGES</div>
+                    </div>
+                    <h3 class="font-semibold text-2xl mt-5 tracking-tight">Bridal &amp; Event Styling</h3>
+                    <p class="text-[#6B5C52] mt-2 text-sm">On-site or in-salon wedding hair &amp; makeup for your special day.</p>
+                    <a href="#weddings" class="inline-block mt-6 text-sm font-semibold text-[#4A2C3A] hover:text-[#C5A26F]">Learn more →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISUALS & GALLERY SECTION (with actual images) -->
+    <section id="visuals" class="max-w-6xl mx-auto px-6 pt-16 pb-14">
+        <div class="flex items-end justify-between mb-7">
+            <div>
+                <div class="text-xs tracking-[3px] font-semibold text-[#C5A26F]">THE EXPERIENCE</div>
+                <h2 class="section-header heading-serif tracking-tighter text-[#4A2C3A]">Our Space &amp; Transformations</h2>
+            </div>
+            <a href="https://www.instagram.com/salonexodus603/" target="_blank" class="hidden md:block text-sm font-medium text-[#4A2C3A] hover:text-[#C5A26F]">
+                See more on Instagram →
+            </a>
+        </div>
+
+        <!-- Featured real images grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4">
+            
+            <!-- Large interior using generated image -->
+            <div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-xl image-card border border-[#EDE4D9]">
+                <img src="interior.jpg" alt="Modern elegant salon interior at Salon Exodus with styling chairs, plants and natural light" class="w-full h-full object-cover aspect-video lg:aspect-auto lg:h-[420px]">
+            </div>
+            
+            <!-- Exterior -->
+            <div class="lg:col-span-5 rounded-3xl overflow-hidden shadow-xl image-card border border-[#EDE4D9]">
+                <img src="exterior.jpg" alt="Charming New England exterior of Salon Exodus on School Street in Peterborough NH" class="w-full h-full object-cover aspect-video lg:aspect-auto lg:h-[420px]">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-5 text-white">
+                    <div class="text-sm font-medium">Charming School Street location</div>
+                </div>
+            </div>
+
+            <!-- Original website hero screenshot -->
+            <div class="lg:col-span-5 rounded-3xl overflow-hidden border border-[#EDE4D9] image-card relative">
+                <img src="IMG_0663.jpg" alt="Original Salon Exodus website hero screenshot showing elegant interior" class="w-full h-full object-cover">
+                <div class="absolute top-4 left-4 bg-white/90 text-[#4A2C3A] text-xs font-semibold px-3 py-1 rounded-2xl">ORIGINAL WEBSITE HERO</div>
+            </div>
+
+            <!-- Instagram grid screenshot -->
+            <div class="lg:col-span-7 rounded-3xl overflow-hidden border border-[#EDE4D9] image-card relative">
+                <img src="IMG_0664.jpg" alt="Salon Exodus Instagram profile grid showing beautiful hair transformations and services" class="w-full h-full object-cover">
+                <div class="absolute top-4 right-4 bg-black/70 text-white text-xs font-semibold px-3.5 py-1 rounded-2xl flex items-center gap-x-1.5">
+                    <i class="fa-brands fa-instagram"></i> 
+                    <span>LIVE ON INSTAGRAM</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-6 text-xs text-[#8B6F5C]">
+            Real photos from the salon and community • Tap images to view larger (coming soon)
+        </div>
+    </section>
+
+    <!-- WEDDINGS -->
+    <section id="weddings" class="bg-[#4A2C3A] text-white py-14">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-x-14 items-center">
+                <div>
+                    <div class="text-[#C5A26F] text-xs tracking-[2.5px] mb-2">FOR YOUR MOST IMPORTANT DAY</div>
+                    <h2 class="section-header heading-serif tracking-tighter">Weddings &amp; Special Events</h2>
+                    <p class="mt-4 text-white/80 max-w-md">Timeless, camera-ready looks for brides, bridal parties, and special occasions. On-site or in-salon.</p>
+                    
+                    <ul class="mt-7 space-y-[9px] text-sm">
+                        <li class="flex gap-x-3"><i class="fa-solid fa-check mt-1 text-[#C5A26F]"></i> On-site &amp; in-salon options</li>
+                        <li class="flex gap-x-3"><i class="fa-solid fa-check mt-1 text-[#C5A26F]"></i> Bridal trials available</li>
+                        <li class="flex gap-x-3"><i class="fa-solid fa-check mt-1 text-[#C5A26F]"></i> Group pricing for parties</li>
+                    </ul>
+                </div>
+                <div class="mt-9 md:mt-0 bg-white/5 border border-white/10 rounded-3xl p-8">
+                    <blockquote class="italic text-lg">“My wedding hair was everything I dreamed of. The team made the morning feel joyful and calm.”</blockquote>
+                    <div class="text-xs tracking-wider mt-4 text-[#C5A26F]">— EMILY R., 2025 BRIDE</div>
+                    
+                    <a href="https://app.squareup.com/appointments/book/ch3mqiuq3ri8e3/LYQ264JHCVMAT/start" target="_blank"
+                       class="mt-7 block text-center bg-[#C5A26F] hover:bg-[#B38A55] transition text-[#4A2C3A] font-semibold py-3.5 rounded-3xl text-sm tracking-wider">
+                        INQUIRE ABOUT WEDDING SERVICES
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="max-w-5xl mx-auto px-6 py-14">
+        <div class="text-center mb-8">
+            <div class="text-xs tracking-[3px] font-semibold text-[#C5A26F]">LOVED BY THE COMMUNITY</div>
+            <h2 class="section-header heading-serif tracking-tighter text-[#4A2C3A]">What guests are saying</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-5">
+            <div class="bg-white p-6 rounded-3xl border border-[#EDE4D9]">
+                <div class="flex text-[#C5A26F] mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                <p class="italic text-sm text-[#5C4639]">“Deb is an excellent colorist. She listens exactly to what you want and delivers beautiful results every time.”</p>
+                <div class="mt-4 text-xs font-medium">— Sarah M., Peterborough</div>
+            </div>
+            <div class="bg-white p-6 rounded-3xl border border-[#EDE4D9]">
+                <div class="flex text-[#C5A26F] mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="italic text-sm text-[#5C4639]">“The keratin smoothing treatment changed my hair completely. The salon is peaceful and beautiful.”</p>
+                <div class="mt-4 text-xs font-medium">— Jenna T., Hancock</div>
+            </div>
+            <div class="bg-white p-6 rounded-3xl border border-[#EDE4D9]">
+                <div class="flex text-[#C5A26F] mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="italic text-sm text-[#5C4639]">“Got my nails done for a wedding — they were perfect. Everyone asked where I went!”</p>
+                <div class="mt-4 text-xs font-medium">— Amanda K., Jaffrey</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION / VISIT US -->
+    <section id="location" class="bg-white border-t border-[#EDE4D9]">
+        <div class="max-w-6xl mx-auto px-6 py-14">
+            <div class="grid lg:grid-cols-5 gap-x-12">
+                <div class="lg:col-span-2">
+                    <div class="sticky top-24">
+                        <div class="text-xs tracking-[3px] font-semibold text-[#C5A26F]">COME SEE US</div>
+                        <h2 class="section-header heading-serif tracking-tighter text-[#4A2C3A] mt-1">Visit the Studio</h2>
+                        
+                        <div class="mt-6 space-y-5 text-sm">
+                            <div>
+                                <div class="font-semibold">Salon Exodus</div>
+                                <div class="text-[#6B5C52]">7 School Street<br>Peterborough, NH 03458</div>
+                            </div>
+                            <a href="tel:6039031175" class="block font-semibold text-xl text-[#4A2C3A] hover:text-[#C5A26F]">(603) 903-1175</a>
+                            
+                            <div>
+                                <div class="font-medium mb-1">Hours</div>
+                                <div class="text-[#6B5C52] text-sm grid grid-cols-2 gap-x-3">
+                                    <div>Tue – Fri</div><div>9:00am – 6:00pm</div>
+                                    <div>Saturday</div><div>9:00am – 4:00pm</div>
+                                    <div>Sun &amp; Mon</div><div>Closed</div>
+                                </div>
+                            </div>
+                            
+                            <div class="pt-2">
+                                <a href="https://www.google.com/maps/search/?api=1&query=7+School+St+Peterborough+NH+03458" target="_blank"
+                                   class="inline-flex items-center gap-x-2 text-sm font-semibold text-[#4A2C3A] hover:text-[#C5A26F]">
+                                    <i class="fa-solid fa-map-marker-alt"></i> 
+                                    <span>Open in Google Maps • Street View available</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="lg:col-span-3 mt-10 lg:mt-0">
+                    <div class="bg-[#F8F4EF] rounded-3xl p-8 border border-[#EDE4D9]">
+                        <h3 class="font-semibold text-xl tracking-tight mb-1">Questions or ready to book?</h3>
+                        <p class="text-sm text-[#6B5C52] mb-6">We typically reply within a few hours.</p>
+                        
+                        <form id="contact-form" onsubmit="submitForm(event)">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="text-xs block mb-1 text-[#8B6F5C]">NAME</label>
+                                    <input type="text" required class="w-full bg-white border border-[#E0D5C8] rounded-2xl px-5 py-3 text-sm focus:outline-none focus:border-[#C5A26F]">
+                                </div>
+                                <div>
+                                    <label class="text-xs block mb-1 text-[#8B6F5C]">EMAIL</label>
+                                    <input type="email" required class="w-full bg-white border border-[#E0D5C8] rounded-2xl px-5 py-3 text-sm focus:outline-none focus:border-[#C5A26F]">
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <label class="text-xs block mb-1 text-[#8B6F5C]">INTERESTED IN</label>
+                                <select class="w-full bg-white border border-[#E0D5C8] rounded-2xl px-5 py-3 text-sm focus:outline-none focus:border-[#C5A26F]">
+                                    <option>General Inquiry</option>
+                                    <option>Haircut or Color</option>
+                                    <option>Keratin Smoothing</option>
+                                    <option>Bridal / Wedding</option>
+                                    <option>Nails or Skin</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <label class="text-xs block mb-1 text-[#8B6F5C]">MESSAGE</label>
+                                <textarea rows="3" required placeholder="How can we help you?" class="w-full bg-white border border-[#E0D5C8] rounded-3xl px-5 py-4 text-sm focus:outline-none focus:border-[#C5A26F]"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="mt-5 w-full bg-[#4A2C3A] hover:bg-[#3A1F2E] text-white py-4 rounded-3xl font-semibold text-sm tracking-wider modern-btn">
+                                SEND MESSAGE
+                            </button>
+                            <p class="text-center text-[10px] text-[#8B6F5C] mt-3">Or text/call us at (603) 903-1175</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <div class="bg-[#4A2C3A] py-12">
+        <div class="max-w-md mx-auto text-center px-6">
+            <div class="text-[#C5A26F] tracking-[2px] text-xs mb-2">WE CAN'T WAIT TO MEET YOU</div>
+            <h3 class="text-white text-3xl font-semibold tracking-tight">Let’s create something beautiful.</h3>
+            <a href="https://app.squareup.com/appointments/book/ch3mqiuq3ri8e3/LYQ264JHCVMAT/start" target="_blank"
+               class="mt-7 inline-flex bg-[#C5A26F] hover:bg-[#B38A55] text-[#4A2C3A] font-semibold px-9 py-4 rounded-3xl text-sm tracking-wider modern-btn">
+                BOOK YOUR APPOINTMENT
+            </a>
+        </div>
+    </div>
+
+    <footer class="bg-[#2D1F24] text-white/60 text-xs py-7">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-2 text-center">
+            <div>© 2026 Salon Exodus • Peterborough, New Hampshire</div>
+            <div>Handcrafted with care for a local business</div>
+        </div>
+    </footer>
+
+    <!-- Success Toast -->
+    <div id="success-toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-emerald-700 text-white px-6 py-3 rounded-3xl shadow-xl items-center gap-x-3 text-sm z-[200]">
+        <i class="fa-solid fa-check-circle"></i>
+        <span>Thank you! We'll reply within a few hours.</span>
+    </div>
+
+    <script>
+        // Tailwind + mobile menu
+        function init() {
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            if (mobileBtn) {
+                mobileBtn.addEventListener('click', () => {
+                    const menu = document.createElement('div');
+                    menu.className = 'fixed inset-0 bg-black/60 z-[999] md:hidden';
+                    menu.innerHTML = `
+                        <div class="bg-white w-4/5 max-w-xs h-full p-6">
+                            <div class="flex justify-between items-center mb-8">
+                                <div class="text-xl font-bold heading-serif text-[#4A2C3A]">Salon Exodus</div>
+                                <button class="text-2xl text-[#4A2C3A]">&times;</button>
+                            </div>
+                            <div class="flex flex-col gap-y-4 text-lg">
+                                <a href="#story" class="py-1">Our Story</a>
+                                <a href="#services" class="py-1">Services</a>
+                                <a href="#visuals" class="py-1">Gallery &amp; Space</a>
+                                <a href="#weddings" class="py-1">Weddings</a>
+                                <a href="#location" class="py-1">Visit Us</a>
+                            </div>
+                            <div class="mt-auto pt-8">
+                                <a href="https://app.squareup.com/appointments/book/ch3mqiuq3ri8e3/LYQ264JHCVMAT/start" target="_blank"
+                                   class="block text-center bg-[#4A2C3A] text-white py-3.5 rounded-3xl font-semibold">BOOK NOW</a>
+                            </div>
+                        </div>`;
+                    document.body.appendChild(menu);
+                    menu.onclick = (e) => { if (e.target === menu) menu.remove(); };
+                    menu.querySelector('button').onclick = () => menu.remove();
+                });
+            }
+
+            // Smooth scroll for quick nav
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        const y = target.getBoundingClientRect().top + window.scrollY - 95;
+                        window.scrollTo({ top: y, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Active state on quick nav (simple)
+            const navLinks = document.querySelectorAll('#quick-nav a');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                document.querySelectorAll('section[id]').forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= sectionTop - 120) current = section.getAttribute('id');
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active', 'bg-[#4A2C3A]', 'text-white');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active', 'bg-[#4A2C3A]', 'text-white');
+                    }
+                });
+            });
+
+            console.log('%c[Salon Exodus v2] Modern sample with real images and quick nav initialized.', 'color:#8B6F5C');
+        }
+
+        function submitForm(e) {
+            e.preventDefault();
+            const toast = document.getElementById('success-toast');
+            toast.style.transition = 'all .3s ease';
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                    toast.classList.remove('flex');
+                    toast.style.opacity = '1';
+                    e.target.reset();
+                }, 280);
+            }, 4200);
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>
